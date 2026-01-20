@@ -13,7 +13,7 @@ function Body()
                 </div>
             </div>
 
-            <button className="bg-green-500 w-[10rem] rounded-md hover:cursor-pointer hover:scale-125 transition-all duration-500 ease-in-out"><text className="text-white">Summarize</text></button>
+            <button className="bg-green-500 w-[10rem] rounded-md hover:cursor-pointer hover:scale-125 transition-all duration-500 ease-in-out"><text className="text-white text-lg">Summarize</text></button>
 
         </div>
     )
