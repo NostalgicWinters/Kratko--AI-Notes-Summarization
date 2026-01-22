@@ -1,46 +1,44 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from transformers import BartTokenizer, BartForConditionalGeneration
-import torch
+from transformers import BartForConditionalGeneration, BartTokenizer
 
-app = FastAPI(title="BART Text Summarization API")
+app = FastAPI()
 
-# Load model once at startup (IMPORTANT for performance)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # dev only
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 MODEL_NAME = "facebook/bart-large-cnn"
 tokenizer = BartTokenizer.from_pretrained(MODEL_NAME)
 model = BartForConditionalGeneration.from_pretrained(MODEL_NAME)
-model.eval()
 
 class SummarizeRequest(BaseModel):
     text: str
     max_length: int = 150
     min_length: int = 40
 
-class SummarizeResponse(BaseModel):
-    summary: str
-
-@app.post("/summarize", response_model=SummarizeResponse)
+@app.post("/summarize")
 def summarize(req: SummarizeRequest):
     inputs = tokenizer(
         req.text,
-        return_tensors="pt",
+        max_length=1024,
         truncation=True,
-        max_length=1024
+        return_tensors="pt"
     )
 
-    with torch.no_grad():
-        summary_ids = model.generate(
-            inputs["input_ids"],
-            max_length=req.max_length,
-            min_length=req.min_length,
-            num_beams=4,
-            length_penalty=2.0,
-            early_stopping=True
-        )
-
-    summary = tokenizer.decode(
-        summary_ids[0],
-        skip_special_tokens=True
+    summary_ids = model.generate(
+        inputs["input_ids"],
+        max_length=req.max_length,
+        min_length=req.min_length,
+        num_beams=4,
+        length_penalty=2.0,
+        early_stopping=True
     )
 
+    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return {"summary": summary}
