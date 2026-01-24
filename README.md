@@ -56,3 +56,26 @@ Responsive UI
 3) Generates an abstractive summary
 
 4) Summary is returned and displayed in the UI
+
+## Getting Started
+### 1) Clone the Repository
+```git clone https://github.com/your-username/ai-text-summarizer.git```
+```cd ai-text-summarizer ```
+
+### 2) Backend Setup
+```cd backend```
+```pip install -r requirements.txt```
+```python app.py```
+
+
+The backend will start on:
+
+```http://localhost:8000```
+
+3) Frontend Setup
+```cd frontend```
+```npm install```
+```npm start```
+
+
+or simply open index.html if using plain HTML/JS.
