@@ -64,7 +64,9 @@ Responsive UI
 
 ### 2) Backend Setup
 ```cd backend```
+
 ```pip install -r requirements.txt```
+
 ```python app.py```
 
 
@@ -74,7 +76,9 @@ The backend will start on:
 
 3) Frontend Setup
 ```cd frontend```
+
 ```npm install```
+
 ```npm start```
 
 
