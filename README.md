@@ -49,10 +49,10 @@ Responsive UI
 
 ### Backend:
 
-Tokenizes input
+1) Tokenizes input
 
-Runs BART model inference
+2) Runs BART model inference
 
-Generates an abstractive summary
+3) Generates an abstractive summary
 
-Summary is returned and displayed in the UI
+4) Summary is returned and displayed in the UI
