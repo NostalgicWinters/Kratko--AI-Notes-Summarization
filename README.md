@@ -59,7 +59,9 @@ Responsive UI
 
 ## Getting Started
 ### 1) Clone the Repository
+
 ```git clone https://github.com/your-username/ai-text-summarizer.git```
+
 ```cd ai-text-summarizer ```
 
 ### 2) Backend Setup
@@ -75,6 +77,7 @@ The backend will start on:
 ```http://localhost:8000```
 
 3) Frontend Setup
+
 ```cd frontend```
 
 ```npm install```
