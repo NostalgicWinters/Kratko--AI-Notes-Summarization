@@ -58,6 +58,7 @@ Responsive UI
 4) Summary is returned and displayed in the UI
 
 ## Project Structure
+```
 ├── kratko/
 ├── kratko-backend/
 │   ├── __pycache__/
@@ -84,7 +85,7 @@ Responsive UI
 │   └── vite.config.js
 ├── package-lock.json
 └── README.md
-
+```
 
 ## Getting Started
 ### 1) Clone the Repository
