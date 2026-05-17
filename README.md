@@ -57,6 +57,35 @@ Responsive UI
 
 4) Summary is returned and displayed in the UI
 
+## Project Structure
+├── kratko/
+├── kratko-backend/
+│   ├── __pycache__/
+│   │   └── app.cpython-314.pyc
+│   └── app.py
+├── kratko-frontend/
+│   ├── public/
+│   │   └── vite.svg
+│   ├── src/
+│   │   ├── assets/
+│   │   │   └── react.svg
+│   │   ├── pages/
+│   │   │   ├── Body.jsx
+│   │   │   └── Header.jsx
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vite.config.js
+├── package-lock.json
+└── README.md
+
+
 ## Getting Started
 ### 1) Clone the Repository
 
