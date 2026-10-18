@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./kratko-backend
+      dockerfile: dockerfile
+    container_name: kratko-backend
+    ports:
+      - "8000:8000"
+
+
+  frontend:
+    build:
+      context: ./kratko-frontend 
+      dockerfile: dockerfile 
+    container_name: kratko-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
